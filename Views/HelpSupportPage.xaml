@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopApp.Views.HelpSupportPage"
+             xmlns:views="clr-namespace:ShopApp.Views"
+             Title="HelpSupportPage">
+
+    <!--<ContentPage.Resources>
+        <views:HelpSupportData x:Key="data" VisitasPendientes="10" />
+    </ContentPage.Resources>-->
+
+    <ContentPage.BindingContext>
+        <views:HelpSupportData VisitasPendientes="10" />
+    </ContentPage.BindingContext>
+    
+    <Grid RowDefinitions="Auto, *">
+        <Label 
+            Text="{Binding Clients.Count,  Mode=OneWay  }"
+            FontSize="30"
+            />
+            <!--Text="{Binding Source={StaticResource data}, Path=VisitasPendientes, Mode=OneWay  }" -->
+
+        
+        <CollectionView
+            Grid.Row="1"
+            SelectionMode="Single"
+            SelectedItem="{Binding ClienteSeleccionado, Mode=TwoWay}"
+            ItemsSource="{Binding Clients, Mode=OneWay }" />
+            <!--ItemsSource="{Binding, Source={StaticResource data}, Path=Clients,  Mode=OneWay }" -->
+
+        <!--<Button Text="Actualizar" Clicked="Button_Clicked"/>-->
+    </Grid>
+</ContentPage>

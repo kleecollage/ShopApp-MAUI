@@ -1,0 +1,99 @@
+# Archivos de Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+[Bb]uild[Ll]og.*
+# Directorios de propiedades de dependencias
+Debug/
+Release/
+*.nupkg
+*.snupkg
+
+# Configuración de entorno y paquetes
+.env
+.env.*
+.idea/
+*__pycache__/
+*.DS_Store
+*.directory
+
+# Archivos específicos de MAUI
+AppPackages/
+GeneratedFiles/
+platforms/
+Properties/launchSettings.json
+
+# Archivos de paquetes de NuGet
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Configuración de MSBuild y NuGet
+*.props
+*.targets
+*.config
+.nuget/
+packages/*
+
+# Archivos de publicación
+*.PublishProfiles/
+PublishOutput/
+
+# Archivos de configuración locales
+*.userprefs
+*.local.settings.json
+.localpath
+
+# Archivos de depuración y errores
+*.tlog
+*.log
+*.dbmdl
+*.opendb
+*.pidb
+*.aps
+
+# Archivos específicos de Mac y Linux
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+*.swp
+*.swo
+
+# Archivos de backup
+*.bak
+*.old
+
+# Archivos generados por MAUI para Android e iOS
+*.apk
+*.aab
+*.ipa
+*.xcuserstate
+*.xcuserdata/
+
+# Archivos temporales de compilación en XCode para iOS
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.xcscmblueprint
+*.xcworkspace
+
+# Archivos temporales de configuración en Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp

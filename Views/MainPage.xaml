@@ -1,0 +1,139 @@
+﻿
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopApp.Views.MainPage">
+
+    <Grid
+        ColumnDefinitions="Auto, Auto"
+        RowDefinitions="Auto, Auto, Auto"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+    >
+        <Ellipse Grid.Row="0"  Grid.Column="0" WidthRequest="50" HeightRequest="50" Fill="LightSteelBlue" Margin="4"/>
+        <Label Grid.Row="0" Grid.Column="0"  x:Name="category" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" />
+        <Label Grid.Row="0" Grid.Column="1"  Text="Categorias" VerticalTextAlignment="Center" FontSize="30" />
+        
+        <Ellipse Grid.Row="1" Grid.Column="0" WidthRequest="50" HeightRequest="50" Fill="LightSteelBlue" Margin="4"/>
+        <Label Grid.Row="1" Grid.Column="0"  x:Name="client" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" />
+        <Label Grid.Row="1" Grid.Column="1" Text="Clintes" VerticalTextAlignment="Center" FontSize="30" />
+
+        <Ellipse Grid.Row="2" Grid.Column="0" WidthRequest="50" HeightRequest="50" Fill="LightSteelBlue" Margin="4"/>
+        <Label Grid.Row="2" Grid.Column="0"  x:Name="product" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" />
+        <Label Grid.Row="2" Grid.Column="1" Text="Productos" VerticalTextAlignment="Center" FontSize="30" />
+        
+    </Grid>
+
+    <!-- Animaciones ...
+    <VerticalStackLayout>
+        <Ellipse WidthRequest="200" HeightRequest="200">
+            <Ellipse.Fill>
+                <SolidColorBrush Color="Orange" />
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <Rectangle WidthRequest="100" HeightRequest="80" Fill="Blue" >
+            <Rectangle.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Rectangle.GestureRecognizers>
+        </Rectangle>
+    </VerticalStackLayout>-->
+    
+    <!-- Componentes ...
+    <VerticalStackLayout>
+        <Button Text="Boton" />
+        <DatePicker />
+        <Editor Placeholder="Esto es un editor" HeightRequest="200" />
+        <Entry Placeholder="Esto es una caja de texto" />
+        <Picker>
+            <Picker.Items>
+                <x:String>Vaxi</x:String>
+                <x:String>VaxiDrez.com</x:String>
+                <x:String>Nestor Arcila</x:String>
+            </Picker.Items>
+        </Picker>
+        <Stepper Minimum="0" Maximum="10" Increment="1" />
+        <Switch IsToggled="False" />
+        <Slider Minimum="0" Maximum="1" />
+        <TimePicker />
+    </VerticalStackLayout>--> 
+
+    <!--Los estilos se deben declarar m la raiz App.xaml
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="LightBlue" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>-->
+
+    <!-- Los estilos vienen definidos globalmente y los llamamos con el key
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Style="{StaticResource MiGridVaxi}" >
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+        </Grid.GestureRecognizers>
+        
+        <Label FontSize="30" x:Name="category" />
+        <Label FontSize="30" x:Name="client" Grid.Column="1" />
+        <Label FontSize="30" x:Name="product" Grid.Column="1" Grid.Row="1" />
+    </Grid>-->
+
+    <!-- No se recomienda usar esto
+    <AbsoluteLayout>
+        AbsoluteLayout.LayoutBounds="X, Y, WIDTH, HEIGHT"
+        <Button Text="Vaxi" AbsoluteLayout.LayoutBounds="4, 4, 100, 50" />
+        <Button Text="Drez" AbsoluteLayout.LayoutBounds="105, 4, 100, 50" />
+        <Label Text="vaxidrez.com" AbsoluteLayout.LayoutBounds="4, 60, 100, 50"/>
+        <Rectangle Background="Black" AbsoluteLayout.LayoutBounds="40, 125, 5, 100"/>
+        <Rectangle Background="Black" AbsoluteLayout.LayoutBounds="35, 215, 100, 5"/>
+    </AbsoluteLayout>-->
+
+    <!-- Bastante similar a los flex de Css
+    <FlexLayout Direction="Column" JustifyContent="SpaceBetween" AlignContent="Center">
+        <Label Text="Nombre: " FlexLayout.Basis="10%" />
+        <Label Text="Apellido: " />
+        <Label Text="Productos: " />
+        <Border Stroke="Gray" FlexLayout.Grow="1">
+            <CollectionView>
+                
+            </CollectionView>
+        </Border>
+
+        <Button Text="Guardar" />
+        <Button Text="Ver" />
+    </FlexLayout>-->
+
+    <!-- Se definen las coordenadas para posicionar cada elemento
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label x:Name="category" Grid.Row="0" Grid.Column="0" />
+        <Label x:Name="client" Grid.Row="0" Grid.Column="1" />
+        <Label x:Name="product" Grid.Row="1" Grid.Column="0" />
+        <Button HorizontalOptions="Center" Text="Guardar" Grid.Row="2" Grid.ColumnSpan="2"/>
+    </Grid>-->
+    
+    <!-- Tampoco se recomienda usar este
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Label x:Name="category" />
+                <Label x:Name="client" />
+                <Label x:Name="product" />
+            </HorizontalStackLayout>
+            <Label Text="Mi App" VerticalOptions="Center" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>-->
+
+</ContentPage>

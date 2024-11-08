@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ShopApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:ShopApp.Views"
+    Shell.FlyoutBehavior="Flyout" 
+    xmlns:info="clr-namespace:Microsoft.Maui.ApplicationModel;assembly=Microsoft.Maui.Essentials"
+    >
+
+    <Shell.FlyoutHeader>
+        <Image Source="dotnet_bot.png" WidthRequest="120" Margin="10"/>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <VerticalStackLayout Padding="10">
+            <Label Text="{x:Static info:AppInfo.Name}" />
+            <Label Text="{x:Static info:AppInfo.VersionString}" />
+        </VerticalStackLayout>
+    </Shell.FlyoutFooter>
+
+    <ShellContent
+        Title="Acerca de Mi Tienda"
+        ContentTemplate="{DataTemplate views:AboutPage}"
+        Route="AboutPage" />
+
+    <FlyoutItem Title="Configuracion">
+        <Tab Title="Resumen">
+            <ShellContent
+                Title="Data System"
+                ContentTemplate="{DataTemplate views:MainPage}"
+                Route="MainPage" />
+        </Tab>
+        
+        <Tab Title="Productos">
+            <ShellContent
+                Title="Productos"
+                ContentTemplate="{DataTemplate views:ProductsPage}"
+                Route="ProductsPage" />
+        </Tab>
+
+        <Tab Title="Categortias">
+            <ShellContent
+                Title="Categorias"
+                ContentTemplate="{DataTemplate views:CategoriesPage}"
+                Route="Page" />
+        </Tab>
+
+        <Tab Title="Clientes">
+            <ShellContent
+            Title="Clients"
+            ContentTemplate="{DataTemplate views:ClientsPage}"
+            Route="ClientsPage" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <ShellContent 
+        Title="Help Support"
+        ContentTemplate="{DataTemplate views:HelpSupportPage}"
+        Route="HelpSupportPage"
+        />
+
+    <!-- EVENTO: LINK EXTERNO -->
+    <MenuItem
+        Text="Abrir Pagina"
+        Clicked="MenuItem_Clicked"
+    />
+</Shell>
