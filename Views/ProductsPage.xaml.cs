@@ -8,18 +8,21 @@ public partial class ProductsPage : ContentPage
 	{
 		InitializeComponent();
 
-		var dbContext = new ShopDbContext();
+		var database = new ShopDbContext();
+		products.ItemsSource = database.Products;
 
-		foreach(var product in dbContext.Products)
-		{
-			var button = new Button { Text = product.Nombre };
-			button.Clicked += async (s, a) =>
-			{
-				var uri = $"{nameof(ProductDetailPage)}?id={product.Id}";
-				await Shell.Current.GoToAsync(uri);
-			};
+		//var dbContext = new ShopDbContext();
 
-			container.Children.Add(button);
-		}
+		//foreach(var product in dbContext.Products)
+		//{
+		//	var button = new Button { Text = product.Nombre };
+		//	button.Clicked += async (s, a) =>
+		//	{
+		//		var uri = $"{nameof(ProductDetailPage)}?id={product.Id}";
+		//		await Shell.Current.GoToAsync(uri);
+		//	};
+
+		//	container.Children.Add(button);
+		//}
 	}
 }

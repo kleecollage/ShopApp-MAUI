@@ -2,9 +2,28 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ShopApp"
+             xmlns:data="clr-namespace:ShopApp.DataAccess"
+             xmlns:converters="clr-namespace:ShopApp.Converters"
              x:Class="ShopApp.App">
     <Application.Resources>
         <ResourceDictionary>
+            <converters:PrecioParaColorConverter x:Key="PrecioParaColorConverter" />
+            <DataTemplate x:Key="ProductDataTemplate" x:DataType="data:Product">
+                <Grid ColumnDefinitions="*, Auto" Padding="4" HeightRequest="80">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label  Text="{Binding Nombre}" FontAttributes="Bold"/>
+                        <Label  Text="{Binding Descripcion}"/>
+                    </VerticalStackLayout>
+                    <Label
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        FontAutoScalingEnabled="True"
+                        Text="{Binding Precio, StringFormat='{0:C}'}"
+                        TextColor="{Binding Precio, Converter={StaticResource PrecioParaColorConverter}}"
+                        />
+                </Grid>
+            </DataTemplate>
             <!-- Estilo Global Personalizado ... -->
             <Style x:Key="MiGridVaxi" TargetType="Grid">
                 <Setter Property="Background">
