@@ -7,6 +7,7 @@ public class ShopDbContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<Client> Clients { get; set; }
+    // public DbSet<Compra> Compras { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseInMemoryDatabase("ShopComputer");
@@ -52,3 +53,4 @@ public record Product(int Id, string Nombre, string Descripcion, decimal Precio,
     public Category Category { get; set; }
 }
 public record Client(int Id, string Nombre, string Direccion);
+public record Compra(int ClientId, int ProductId, int Cantidad, string ProductoNombre, decimal ProductoPrecio, decimal Total);

@@ -3,5 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopApp.Views.ProductDetailPage"
              Title="ProductDetailPage">
-    <VerticalStackLayout x:Name="container" />
+    <VerticalStackLayout Margin="10" >
+        <Label 
+            Text="{Binding Nombre}"
+            FontSize="Title"
+            />
+        <Label
+            Text="{Binding Descripcion}"
+            FontSize="Subtitle"
+            />
+        <Label
+            Text="{Binding Precio, StringFormat='{0:C}'}"
+            />
+    </VerticalStackLayout>
 </ContentPage>

@@ -14,11 +14,18 @@
         />
     </Shell.SearchHandler>
 
-    <CollectionView 
-        x:Name="products"
-        SelectionMode="Single"
-        ItemTemplate="{StaticResource ProductDataTemplate}"
-        />
+    <RefreshView 
+        Command="{Binding RefreshCommand}"
+        IsRefreshing="{Binding IsRefreshing}"
+        >
+        <CollectionView 
+            SelectionMode="Single"
+            ItemsSource="{Binding Products}"
+            SelectedItem="{Binding ProductoSeleccionado, Mode=TwoWay}"
+            ItemTemplate="{StaticResource ProductDataTemplate}"
+            />
+    </RefreshView>
+
 
 
 </ContentPage>

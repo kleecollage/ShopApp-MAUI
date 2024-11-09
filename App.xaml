@@ -8,6 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <converters:PrecioParaColorConverter x:Key="PrecioParaColorConverter" />
+            <!-- DataTemplate personalizado -->
             <DataTemplate x:Key="ProductDataTemplate" x:DataType="data:Product">
                 <Grid ColumnDefinitions="*, Auto" Padding="4" HeightRequest="80">
                     <VerticalStackLayout VerticalOptions="Center">

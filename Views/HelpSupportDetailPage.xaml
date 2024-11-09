@@ -5,49 +5,108 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopApp.Views.HelpSupportDetailPage"
-             xmlns:views="clr-namespace:ShopApp.Views"
+             xmlns:vm ="clr-namespace:ShopApp.VewModels"
              Title="HelpSupportDetailPage">
 
+    <!-- YA NO NECESITAMOS ESTA ESTRUCTURA PQ TABANAJOMS DESDE EL VM
     <ContentPage.BindingContext>
-        <views:HelpSupportDetailData />
-    </ContentPage.BindingContext>
-    
-    <Grid ColumnDefinitions="*, *">
-        <VerticalStackLayout>
-            <CollectionView
-                ItemsSource="{Binding Products}" 
-                SelectedItem="{Binding ProductoSeleccionado, Mode=TwoWay}"
-                ItemTemplate="{StaticResource ProductDataTemplate}"
-                HeightRequest="300"
-                SelectionMode="Single"
-                />
-            
-            <HorizontalStackLayout VerticalOptions="Center">
-                <Stepper
-                    Minimum="1"
-                    Maximum="100"
-                    Increment="1"
-                    x:Name="cantidad"
-                    Value="{Binding Cantidad, Mode=TwoWay}"
-                    />
-                <Label 
-                    VerticalOptions="Center"
-                    Margin="4"
-                    Text="{Binding Value, Source={x:Reference Name=cantidad}}"
+        <vm:HelpSupportDetailViewModel />
+    </ContentPage.BindingContext>-->
+
+    <Grid RowDefinitions="*,Auto,*">
+
+        <Grid ColumnDefinitions="*, *">
+            <VerticalStackLayout>
+                <CollectionView
+                    ItemsSource="{Binding Products}" 
+                    SelectedItem="{Binding ProductoSeleccionado, Mode=TwoWay}"
+                    ItemTemplate="{StaticResource ProductDataTemplate}"
+                    HeightRequest="300"
+                    SelectionMode="Single"
                     />
 
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Stepper
+                        Minimum="1"
+                        Maximum="100"
+                        Increment="1"
+                        x:Name="cantidad"
+                        Value="{Binding Cantidad, Mode=TwoWay}"
+                        />
+                    <Label 
+                        VerticalOptions="Center"
+                        Margin="4"
+                        Text="{Binding Value, Source={x:Reference Name=cantidad}}"
+                        />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
 
-        <VerticalStackLayout Grid.Column="1">
-            <Label Text="Nombre"/>
-            <Label Text="{Binding ProductoSeleccionado.Nombre}" />
-            <Label Text="Descripcion"/>
-            <Label Text="{Binding ProductoSeleccionado.Descripcion}"/>
-            <Label Text="Precio" />
-            <Label Text="{Binding ProductoSeleccionado.Precio, StringFormat='{0:C}'}"/>
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Nombre"/>
+                <Label Text="{Binding ProductoSeleccionado.Nombre}" />
+                <Label Text="Descripcion"/>
+                <Label Text="{Binding ProductoSeleccionado.Descripcion}"/>
+                <Label Text="Precio" />
+                <Label Text="{Binding ProductoSeleccionado.Precio, StringFormat='{0:C}'}"/>
 
-        </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+        
+        <Button Grid.Row="1" Text="Agregar" Command="{Binding AddCommand}"  />
+
+        <CollectionView 
+            Grid.Row="2"
+            ItemsSource="{Binding Compras}"
+            >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- ACCION DE GESTO PARA ELIMINAR UN ELEMENTO DE LA LISTA -->
+                    <SwipeView>
+                        
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem 
+                                    Text="Eliminar"
+                                    BackgroundColor="LightSalmon"
+                                    Command="{Binding BindingContext.EliminarCompraCommand,
+                                    Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                    CommandParameter="{Binding}"
+                                    />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Grid ColumnDefinitions="*, 3*, *, *"
+                              HeightRequest="60"
+                              Padding="4"
+                              >
+                            <Label
+                                Text="{Binding Cantidad}"
+                                VerticalTextAlignment="Center"
+                                />
+                            <Label
+                                Text="{Binding ProductoNombre}"
+                                VerticalTextAlignment="Center"
+                                Grid.Column="1"
+                                />
+                            <Label
+                                Text="{Binding ProductoPrecio, StringFormat='{0:C}'}"
+                                VerticalTextAlignment="Center"
+                                Grid.Column="2"                                
+                                />
+                            <Label
+                                Text="{Binding Total, StringFormat='{0:C}'}"
+                                VerticalTextAlignment="Center"
+                                Grid.Column="3"
+                                />          
+                        </Grid>
+                        
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </Grid>
+ 
+    
     
 </ContentPage>

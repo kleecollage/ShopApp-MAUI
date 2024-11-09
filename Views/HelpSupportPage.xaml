@@ -2,16 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopApp.Views.HelpSupportPage"
-             xmlns:views="clr-namespace:ShopApp.Views"
+             xmlns:vm="clr-namespace:ShopApp.VewModels"
              Title="HelpSupportPage">
 
     <!--<ContentPage.Resources>
         <views:HelpSupportData x:Key="data" VisitasPendientes="10" />
     </ContentPage.Resources>-->
 
+    <!-- Respresentamos un bindingcontext llamando al viewmodel:
     <ContentPage.BindingContext>
-        <views:HelpSupportData VisitasPendientes="10" />
-    </ContentPage.BindingContext>
+        <vm:HelpSupportViewModel VisitasPendientes="10" />
+    </ContentPage.BindingContext>  ** Hemos movido esto al .cs -->
     
     <Grid RowDefinitions="Auto, *">
         <Label 
