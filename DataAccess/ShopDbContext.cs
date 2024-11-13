@@ -53,4 +53,4 @@ public record Product(int Id, string Nombre, string Descripcion, decimal Precio,
     public Category Category { get; set; }
 }
 public record Client(int Id, string Nombre, string Direccion);
-public record Compra(int ClientId, int ProductId, int Cantidad, string ProductoNombre, decimal ProductoPrecio, decimal Total);
+public record Compra(int ClienteId, int ProductId, int Cantidad, string ProductoNombre, decimal ProductoPrecio, decimal Total);

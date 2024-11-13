@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopApp.Views.ResumenPage"
+             Title="ResumenPage"
+             BackgroundColor="{StaticResource Quinary}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="60" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>    
+    </ContentPage.Resources>
+
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*,2*" Padding="20">
+        <VerticalStackLayout 
+            Grid.ColumnSpan="2" 
+            BackgroundColor="{StaticResource Quaternary}"
+            Padding="10">
+            <Label Text="{Binding Total, StringFormat='{0:C}'}" />
+            <Label Text="Ventas Totales" FontSize="Subtitle" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout 
+            Grid.Row="1"
+            BackgroundColor="{StaticResource Primary}"
+            Padding="10">
+            
+            <HorizontalStackLayout>
+                <Label Text="{Binding Visitas}" />
+                <Label Text="/" />
+                <Label Text="{Binding Clients}" FontSize="60" />
+            </HorizontalStackLayout>
+
+            <Label Text="Visitas de Clientes" FontSize="Subtitle" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Grid.Column="1"
+            BackgroundColor="{StaticResource Secondary}"
+            Padding="10"
+            >
+            <Label Text="{Binding TotalProducts}" />
+            <Label Text="Productos Vendidos" FontSize="Subtitle"/>
+
+        </VerticalStackLayout>
+    </Grid>
+    
+</ContentPage>

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
@@ -58,10 +58,23 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.93" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.93" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Platforms\iOS\DatabaseRutaService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Platforms\Windows\DatabaseRutaService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,12 +93,34 @@
 	  <MauiXaml Update="Views\HelpSupportPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ProductDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProductsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ResumenPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="F:\MAUI\ComShopApp\ShopApp\Views\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="F:\MAUI\ComShopApp\ShopApp\Views\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="appsettings.json" />
 	</ItemGroup>
 
 </Project>

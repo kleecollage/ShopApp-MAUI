@@ -13,8 +13,9 @@
         <vm:HelpSupportDetailViewModel />
     </ContentPage.BindingContext>-->
 
-    <Grid RowDefinitions="*,Auto,*">
+    <FlexLayout Direction="Column" JustifyContent="Center" AlignContent="Center">
 
+        <!-- Lista de Productos Disponibles -->
         <Grid ColumnDefinitions="*, *">
             <VerticalStackLayout>
                 <CollectionView
@@ -51,18 +52,19 @@
 
             </VerticalStackLayout>
         </Grid>
-        
-        <Button Grid.Row="1" Text="Agregar" Command="{Binding AddCommand}"  />
 
+        <!-- Lista de productos agregados --> 
+        <Button Grid.Row="1" Text="Agregar" Command="{Binding AddCommand}"  />
         <CollectionView 
             Grid.Row="2"
             ItemsSource="{Binding Compras}"
+            FlexLayout.Grow="1"
             >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <!-- ACCION DE GESTO PARA ELIMINAR UN ELEMENTO DE LA LISTA -->
                     <SwipeView>
-                        
+
                         <SwipeView.RightItems>
                             <SwipeItems>
                                 <SwipeItem 
@@ -97,16 +99,19 @@
                                 Text="{Binding Total, StringFormat='{0:C}'}"
                                 VerticalTextAlignment="Center"
                                 Grid.Column="3"
-                                />          
+                                />
                         </Grid>
-                        
+
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-    </Grid>
- 
-    
-    
+        <Button 
+            Grid.Row="3"
+            Text="Enviar al servidor"
+            Command="{Binding EnviarCompraCommand}"
+            />
+
+    </FlexLayout>
 </ContentPage>
