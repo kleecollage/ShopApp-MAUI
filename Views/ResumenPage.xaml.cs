@@ -1,4 +1,3 @@
-
 using ShopApp.ViewModels;
 
 namespace ShopApp.Views;

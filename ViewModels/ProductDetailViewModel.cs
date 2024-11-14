@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShopApp.DataAccess;
 
-namespace ShopApp.VewModels
+namespace ShopApp.ViewModels
 {
     public partial class ProductDetailViewModel : ViewModelGlobal, IQueryAttributable
     {

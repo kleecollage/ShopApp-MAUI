@@ -4,7 +4,7 @@ using ShopApp.Services;
 using ShopApp.Views;
 using System.Collections.ObjectModel;
 
-namespace ShopApp.VewModels;
+namespace ShopApp.ViewModels;
 public partial class HelpSupportViewModel : ViewModelGlobal
 {
 

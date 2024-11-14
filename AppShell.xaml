@@ -19,15 +19,17 @@
         </VerticalStackLayout>
     </Shell.FlyoutFooter>
 
-    <ShellContent
-        Title="Resumen de Ventas"
-        ContentTemplate="{DataTemplate views:ResumenPage}"
-        Route="ResumenPage" />
-
+    <!-- El primer elemento es el primero que se muestra en la app -->
+    <!-- La proteccion de rutas se crea en este elemento -->
     <ShellContent
         Title="Acerca de Mi Tienda"
         ContentTemplate="{DataTemplate views:AboutPage}"
         Route="AboutPage" />
+
+    <ShellContent
+        Title="Resumen de Ventas"
+        ContentTemplate="{DataTemplate views:ResumenPage}"
+        Route="ResumenPage" />
 
     <FlyoutItem Title="Configuracion">
         <Tab Title="Resumen">
@@ -71,4 +73,31 @@
         Text="Abrir Pagina"
         Clicked="MenuItem_Clicked"
     />
+
+    <FlyoutItem Title="Venta de Inmuebles">
+        <Tab Title="Resumen" Icon="home_icon">
+            <ShellContent 
+                Title="Resumen"
+                ContentTemplate="{DataTemplate views:HomePage}"
+                Route="HomePage"
+                />
+        </Tab>
+        
+        <Tab Title="Guardados" Icon="bookmark_icon">
+            <ShellContent 
+                Title="Guardados"
+                ContentTemplate="{DataTemplate views:BookmarkPage}"
+                Route="BookmarkPage"
+            />
+        </Tab>
+
+        <Tab Title="Configuracion" Icon="settings_icon">
+            <ShellContent 
+                Title="Configuracion"
+                ContentTemplate="{DataTemplate views:SettingsPage}"
+                Route="SettingsPage"
+            />
+        </Tab>
+    </FlyoutItem>
+    
 </Shell>

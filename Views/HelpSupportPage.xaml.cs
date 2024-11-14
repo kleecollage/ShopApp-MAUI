@@ -1,4 +1,4 @@
-using ShopApp.VewModels;
+using ShopApp.ViewModels;
 
 namespace ShopApp.Views;
 public partial class HelpSupportPage : ContentPage

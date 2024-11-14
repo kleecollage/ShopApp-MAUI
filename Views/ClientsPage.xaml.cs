@@ -1,5 +1,5 @@
 using ShopApp.DataAccess;
-using ShopApp.VewModels;
+using ShopApp.ViewModels;
 namespace ShopApp.Views; public partial class ClientsPage : ContentPage { 
 	public ClientsPage(ClientsViewModel viewModel) {
 

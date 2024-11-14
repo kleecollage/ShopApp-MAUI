@@ -2,12 +2,11 @@ using ShopApp.ViewModels;
 
 namespace ShopApp.Views;
 
-public partial class LoginPage : ContentPage
+public partial class InmuebleDetailPage : ContentPage
 {
-	public LoginPage(LoginViewModel viewModel)
+	public InmuebleDetailPage(InmuebleDetailViewModel viewModel)
 	{
 		InitializeComponent();
-
         BindingContext = viewModel;
 	}
 }

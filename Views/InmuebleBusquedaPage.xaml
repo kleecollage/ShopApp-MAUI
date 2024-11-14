@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             x:Class="ShopApp.Views.InmuebleBusquedaPage"             
+             xmlns:model="clr-namespace:ShopApp.Models.Backend.Inmueble"
+             xmlns:vm="clr-namespace:ShopApp.ViewModels"
+             x:DataType="vm:InmuebleBusquedaViewModel"
+             Title="Busqueda de Inmuebles"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False"
+             >
+
+    <VerticalStackLayout>
+        <Grid BackgroundColor="#1D94AB"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ImageButton 
+                Grid.Column="0"
+                Source="left_arrow_icon"
+                HeightRequest="30"
+                WidthRequest="30"
+                HorizontalOptions="Center" 
+                Command="{Binding GetBackEventCommand}"
+                />
+
+            <SearchBar Grid.Column="1" Margin="5" TextColor="Black" Placeholder="Buscar Inmueble" Text="{Binding SearchText, Mode=TwoWay}" BackgroundColor="White">
+                <SearchBar.Behaviors>
+                    <toolkit:UserStoppedTypingBehavior 
+                        Command="{Binding EjecutarBusqueda}"
+                        StoppedTypingTimeThreshold="1000"
+                        MinimumLengthThreshold="3"
+                        ShouldDismissKeyboardAutomatically="True"
+                        />
+                </SearchBar.Behaviors>
+            </SearchBar>
+        </Grid>
+
+        <CollectionView Margin="0, 10, 0, 10" SelectionMode="Single" ItemsSource="{Binding Inmuebles}" SelectedItem="{Binding InmuebleSeleccionado, Mode=TwoWay}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:InmuebleResponse">
+                    <Label Padding="10" FontSize="Medium" Text="{Binding Direccion}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    
+    
+    
+</ContentPage>

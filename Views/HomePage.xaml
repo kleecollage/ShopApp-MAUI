@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- importante llamar al modelo y a los view models -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:model="clr-namespace:ShopApp.Models.Backend.Inmueble"
+             xmlns:vm="clr-namespace:ShopApp.ViewModels"
+             x:DataType="vm:HomeViewModel"
+             x:Class="ShopApp.Views.HomePage"
+             Title="Venta Inmuebles">
+    <ScrollView>
+        <Grid Margin="20" RowSpacing="20" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+               <!-- ENCABEZADO -->
+            <VerticalStackLayout Grid.Row="0" Spacing="5">
+                <Label Text="{Binding NombreUsuario}" FontSize="Large" />
+                <Label Text="Encuentra tu mejor lugar para vivir" FontSize="Medium" />
+            </VerticalStackLayout>
+            <!-- BARRA DE BUSQUEDA -->
+            <Frame Grid.Row="1" Padding="15">
+                <HorizontalStackLayout Spacing="20" >
+                    <Image Source="search_icon.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25" />
+                    <Label  Text="Busqueda" VerticalOptions ="Center" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapBusquedaInmueblesCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <!-- CATEGORIAS -->
+            <VerticalStackLayout Grid.Row="2" Spacing="20">
+                <Label Text="Tipos de Viviendas" FontSize="Large" />
+                <CollectionView
+                    SelectionMode="Single"
+                    HeightRequest="50"
+                    ItemsSource="{Binding Categories}"
+                    SelectedItem="{Binding CategoriaSeleccionada}"
+                    SelectionChangedCommand="{Binding CategoryEventSelectedCommand}"
+                    BackgroundColor="White"
+                    >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="25" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:CategoryResponse">
+                            <Border
+                                Padding="16,8"
+                                HorizontalOptions="Center" 
+                                >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10, 10, 10, 10" />
+                                </Border.StrokeShape>
+
+                                <HorizontalStackLayout Spacing="5" HeightRequest="25">
+                                    <Image Source="{Binding ImagenUrl}" Aspect="AspectFit" HeightRequest="25" WidthRequest="25" />
+                                    <Label Text="{Binding NombreCategory}" VerticalOptions="Center" FontSize="Medium" />
+                                </HorizontalStackLayout>
+                                
+                            </Border>
+                        </DataTemplate>    
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            <!-- TRENDIG -->
+            <VerticalStackLayout Grid.Row="3" Spacing="20">
+                <Label Text="Mis Inmuebles Favoritos" FontSize="Large" />
+                <CollectionView HeightRequest="350" SelectionMode="Single" ItemsSource="{Binding FavoriteInmuebles}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:InmuebleResponse">
+                            <Frame CornerRadius="25" Padding="15" BackgroundColor="White">
+                                <Grid RowSpacing="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Frame Grid.Row="0" HeightRequest="200" WidthRequest="250" CornerRadius="25" Padding="0" IsClippedToBounds="True">
+                                        <Image Source="{Binding ImagenUrl}" Aspect="Fill"/>
+                                    </Frame>
+                                    
+                                    <Label Grid.Row="1" Text="{Binding Nombre}" FontSize="Subtitle" />
+                                    <Label Grid.Row="2" Text="{Binding Detalle}" FontSize="Small" WidthRequest="250" LineBreakMode="TailTruncation" />
+                                    <Label Grid.Row="3" Text="{Binding Precio, StringFormat='{0:C}'}" FontSize="Subtitle" TextColor="#1D94AB"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ShopApp.Services;
 
-namespace ShopApp.VewModels;
+namespace ShopApp.ViewModels;
 public partial class LoginViewModel : ViewModelGlobal
 {
     private readonly IConnectivity _connectivity;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:ShopApp.Models.Backend.Inmueble"
+             xmlns:vm="clr-namespace:ShopApp.ViewModels"
+             x:DataType="vm:BookmarkViewModel"
+             x:Class="ShopApp.Views.BookmarkPage"
+             Title="Inmuebles Guardados">
+
+    <CollectionView Margin="10" SelectionMode="Single" ItemsSource="{Binding Inmuebles}" SelectedItem="{Binding InmuebleSeleccionado, Mode=TwoWay}">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:InmuebleResponse">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Column="0" CornerRadius="10" Padding="0" IsClippedToBounds="True">
+                        <Image Source="{Binding ImagenUrl}" HeightRequest="160" Aspect="Fill" />
+                    </Frame>
+
+                    <StackLayout Grid.Column="1" Padding="15" Spacing="10">
+                        <Label Text="{Binding Precio, StringFormat='{0:C}'}" FontSize="Medium" />
+                        <Label Text="{Binding Nombre}" FontSize="Small" />
+                        <Label Text="{Binding Direccion}" FontSize="Small" />
+                    </StackLayout>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    
+</ContentPage>

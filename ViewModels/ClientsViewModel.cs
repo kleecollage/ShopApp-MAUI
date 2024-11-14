@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using ShopApp.DataAccess;
 using System.Collections.ObjectModel;
 
-namespace ShopApp.VewModels
+namespace ShopApp.ViewModels
 {
     public partial class ClientsViewModel: ViewModelGlobal
     {

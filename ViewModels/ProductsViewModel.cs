@@ -6,7 +6,7 @@ using ShopApp.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace ShopApp.VewModels
+namespace ShopApp.ViewModels
 {
     public partial class ProductsViewModel: ViewModelGlobal
     {

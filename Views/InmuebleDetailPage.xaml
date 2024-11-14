@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopApp.Views.InmuebleDetailPage"
+             xmlns:model="clr-namespace:ShopApp.Models.Backend.Inmueble"
+             xmlns:vm="clr-namespace:ShopApp.ViewModels"
+             x:DataType="vm:InmuebleDetailViewModel"
+             Title="Detalles de Vivienda"
+             Shell.NavBarIsVisible="False"
+             >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Source="{Binding Inmueble.ImagenUrl}" Aspect="Fill" HeightRequest="280" Grid.RowSpan="3" />
+        <!-- RETURN & SAVE BUTTONS -->
+        <StackLayout Grid.Row="1" Margin="20, 0, 20, 0" Orientation="Horizontal">
+            <!-- RETURN BTN -->
+            <ImageButton
+                Source="back_icon"
+                CornerRadius="10"
+                BackgroundColor="White"
+                HeightRequest="40"
+                WidthRequest="40"
+                Padding="5"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Command="{Binding GetBackEventCommand}"
+                />
+            <!-- BOOKMARK BTN -->
+            <ImageButton
+                Source="{Binding ImagenSource}"
+                CornerRadius="10"
+                BackgroundColor="White"
+                HeightRequest="40"
+                WidthRequest="40"
+                Padding="5"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="Start"
+                Command="{Binding SaveBookmarkCommand}"
+                />
+        </StackLayout>
+        <!-- DETAILS -->
+        <VerticalStackLayout Grid.Row="3" Margin="20">
+            <Label Text="{Binding Inmueble.Precio, StringFormat='{0:C}'}" FontSize="Subtitle" />
+            <HorizontalStackLayout>
+                <Image HeightRequest="20" Source="location_icon" />
+                <Label Text="{Binding Inmueble.Direccion}" FontSize="Medium" />
+            </HorizontalStackLayout>
+
+            <Label Text="Descripcion" Margin="0, 20, 0, 20" FontSize="Title"/>
+            <Label Text="{Binding Inmueble.Detalle}" FontSize="Medium" />
+        </VerticalStackLayout>
+        <!-- SEND MESSAGE & MAKE A CALL BUTTONS -->
+        <HorizontalStackLayout Grid.Row="4" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Spacing="30">
+            <!-- MESSAGE BTN -->
+            <Frame 
+                HeightRequest="70"
+                WidthRequest="150"
+                CornerRadius="35"
+                BackgroundColor="#1D94AB"
+                >
+                <HorizontalStackLayout Spacing="10">
+                    <Image HeightRequest="25" WidthRequest="25" VerticalOptions="Center" Source="message_icon" />
+                    <Label Text="Mensaje" FontSize="Medium" TextColor="White" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TextMessageOwnerCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <!-- CALL BTN -->
+            <Frame 
+                HeightRequest="70"
+                WidthRequest="150"
+                CornerRadius="35"
+                BackgroundColor="#1D94AB"                
+                >
+                <HorizontalStackLayout Spacing="20">
+                    <Image HeightRequest="25" WidthRequest="25" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Source="phone_icon" />
+                    <Label Text="Llamar" FontSize="Medium" TextColor="White" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CallOwnerCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </HorizontalStackLayout>
+    </Grid>
+    
+    
+    
+</ContentPage>

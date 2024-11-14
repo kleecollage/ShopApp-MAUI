@@ -5,7 +5,7 @@ using ShopApp.Services;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace ShopApp.VewModels;
+namespace ShopApp.ViewModels;
 
 public partial class HelpSupportDetailViewModel : ViewModelGlobal, IQueryAttributable
 {

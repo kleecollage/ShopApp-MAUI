@@ -57,6 +57,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.Core" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
@@ -81,6 +83,9 @@
 	  <MauiXaml Update="Views\AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\BookmarkPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\CategoriesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -91,6 +96,18 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HelpSupportPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InmuebleBusquedaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InmuebleDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InmuebleListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
@@ -105,6 +122,9 @@
 	  <MauiXaml Update="Views\ResumenPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -113,6 +133,22 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Images\about_icon.svg" />
+	  <None Remove="Resources\Images\back_icon.svg" />
+	  <None Remove="Resources\Images\bookmark_empty_icon.svg" />
+	  <None Remove="Resources\Images\bookmark_fill_icon.svg" />
+	  <None Remove="Resources\Images\bookmark_icon.svg" />
+	  <None Remove="Resources\Images\faq_icon.svg" />
+	  <None Remove="Resources\Images\home_icon.svg" />
+	  <None Remove="Resources\Images\house02.jpg" />
+	  <None Remove="Resources\Images\left_arrow_icon.svg" />
+	  <None Remove="Resources\Images\location_icon.svg" />
+	  <None Remove="Resources\Images\logout_icon.svg" />
+	  <None Remove="Resources\Images\message_icon.svg" />
+	  <None Remove="Resources\Images\phone_icon.svg" />
+	  <None Remove="Resources\Images\privacy_icon.svg" />
+	  <None Remove="Resources\Images\search_icon.svg" />
+	  <None Remove="Resources\Images\settings_icon.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

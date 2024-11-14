@@ -3,9 +3,13 @@
 namespace ShopApp;
 
 // CON ESTA CLASE PODEMOS HACER CAMBIOS DINAMICOS EN LA PAGES
-public abstract class ViewModelGlobal : ObservableObject
+public partial class ViewModelGlobal : ObservableObject
 {
-    
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsNotBusy))]
+    bool isBusy;
+
+    public bool IsNotBusy => !isBusy;
 }
 
 
